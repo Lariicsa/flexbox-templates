@@ -1,0 +1,468 @@
+@import "vars.scss";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+//SHARED
+
+html {
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 62.5%;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+	font-size: $regular-size;
+	font-family: 'Open Sans', sans-serif;
+	color: $primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	color: $primary;
+	font-weight: $bold;
+}
+
+h1 {
+	font-size: $xbig-title;
+}
+
+h2 {
+	font-size: $big-title;
+}
+
+h3 {
+	font-size: $medium-title;
+}
+
+h4 {
+	font-size: $small-title;
+}
+
+h5 {
+	font-size: $xsmall-title;
+}
+
+a,
+.link {
+	color: $accent;
+	cursor: pointer;
+}
+
+p {
+	line-height: initial;
+}
+
+input,
+button,
+select {
+	outline: 0;
+}
+
+//Details
+hr {
+	border-top: 0.2rem solid $bg-grey;
+	border-bottom: none;
+	display: flex;
+	margin: 0;
+	width: 100%;
+	height: 0.2rem;
+}
+
+//CONTAINERS
+.space {
+	background-color: $snow;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	width: 100%;
+	height: 100%;
+}
+
+.wrapper {
+	background-color: $snow;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+}
+
+.main-container {
+	background-color: $snow;
+	margin: 0;
+	padding: 3.5rem 0 1rem 0;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: calc(100% - 6rem);
+	min-height: 100vh;
+	width: calc(100% - 18rem);
+
+	&.full {
+		width: 100%;
+	}
+
+	&.m-left {
+		margin-left: 18rem;
+	}
+}
+
+.inner-container {
+	background-color: $snow;
+	margin: 0 auto;
+	padding: 1rem 0;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	max-width: 98rem;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	margin: 0.2rem 0;
+	padding: 0;
+	width: 100%;
+	position: relative;
+
+	&.between {
+		justify-content: space-between;
+	}
+
+	&.around {
+		justify-content: space-around;
+	}
+
+	&.center {
+		justify-content: center;
+	}
+
+	&.left {
+		justify-content: flex-start;
+	}
+
+	&.right {
+		justify-content: flex-end;
+	}
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	&.bottom {
+		justify-content: flex-end;
+	}
+
+	&.center {
+		justify-content: center;
+	}
+
+	&.top {
+		justify-content: flex-start;
+	}
+
+	&Half {
+		@extend .col;
+		flex: 0 1 49%;
+		width: 49%;
+	}
+}
+
+.header {
+	background-color: $snow;
+	box-shadow: $shadow-box;
+	display: flex;
+	padding: 0 2rem;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 6rem;
+	width: 100%;
+	position: relative;
+	z-index: 2;
+
+	&-in-left {
+		display: flex;
+		justify-content: flex-start;
+		align-content: center;
+		width: 48%;
+	}
+
+	&-in-right {
+		display: flex;
+		justify-content: flex-end;
+		align-content: center;
+		width: 48%;
+	}
+}
+
+//UI Kit
+.bg {
+	border-radius: 0.2rem;
+	padding: 1rem;
+
+	&01 {
+		@extend .bg;
+		background-color: $caribe;
+		color: $mint;
+	}
+
+	&02 {
+		@extend .bg;
+		background-color: $mamey;
+	}
+
+	&03 {
+		@extend .bg;
+		background-color: $accent;
+	}
+
+	&04 {
+		@extend .bg;
+		background-color: $dip;
+	}
+
+	&05 {
+		@extend .bg;
+		background-color: $bg-grey;
+	}
+}
+
+.kit {
+	&>hr {
+		margin: 2rem 0;
+	}
+}
+
+.lg {
+	width: $large;
+}
+
+.md {
+	width: $medium;
+}
+
+.sm {
+	width: $small;
+}
+
+#sidebar,
+#sidebar ul,
+#sidebar ul li,
+#sidebar ul li a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	line-height: 1;
+	position: relative;
+
+	&>span {
+		color: $grafito;
+	}
+}
+
+#sidebar {
+	background-color: $snow;
+	border-right: 0.1rem solid $bg-grey;
+	width: 18rem;
+	z-index: 1;
+
+	&.fixed {
+		position: fixed;
+		left: 0;
+		overflow-y: scroll;
+		height: 100%;
+		max-height: 100vh;
+	}
+
+	&>ul {
+		min-height: 100%;
+		height: auto;
+		width: auto;
+	}
+}
+
+#sidebar ul>li {
+	display: block;
+	width: 100%;
+
+	&.has-sub {
+		border-bottom: 0.1rem solid $bg-grey;
+	}
+
+	&.exit a {
+		font-weight: 400;
+	}
+
+	&.disabled a {
+		color: $metal;
+		cursor: not-allowed;
+
+		&:hover {
+			background-color: transparent;
+		}
+	}
+
+	&.open {
+		border-left: 0.3rem solid $caribe;
+	}
+}
+
+#sidebar>ul>li>a,
+#sidebar>ul>li>span {
+	justify-content: center;
+	padding: 2.7rem 2rem;
+	cursor: pointer;
+	z-index: 2;
+	font-size: $regular-size;
+	font-weight: $bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: $blackio;
+	height: 100%;
+	width: 100%;
+	transition: color 0.2s ease;
+}
+
+#sidebar ul>li.open>a {
+	font-weight: $bold;
+	color: $accent;
+}
+
+#sidebar>ul>li>a span {
+	padding: 0;
+	margin-top: 1.2rem;
+	font-size: $medium-size;
+	font-weight: 400;
+}
+
+#sidebar ul>li.open>a {
+	background-color: $mint;
+	font-weight: $bold;
+	color: $grafito;
+}
+
+#sidebar>ul>li>a,
+	{
+	display: block;
+}
+
+#sidebar>ul>li>a:hover {
+	background-color: $mint;
+}
+
+#sidebar ul ul {
+	background-color: $bubble;
+
+	width: 100%;
+}
+
+#sidebar>ul>li.active>ul {
+	display: block;
+}
+
+#sidebar ul li {
+	padding: 0;
+}
+
+#sidebar ul ul li a {
+	background: $snow;
+	display: block;
+	padding: 1rem 2rem;
+	cursor: pointer;
+	z-index: 2;
+	font-size: $regular-size;
+	text-decoration: none;
+	color: $grafito;
+	transition: color 0.2s ease;
+	width: 100%;
+}
+
+#sidebar ul ul li a:hover {
+	background-color: $mint;
+	width: 100%;
+}
+
+#sidebar ul li>ul li.has-sub {
+	border: none;
+}
+
+#sidebar ul li>ul li.has-sub.open>a {
+	border-left: 0.3rem solid $secondary;
+}
+
+#sidebar ul li.open>ul li {
+	border-bottom: none;
+	text-indent: 1.2rem;
+	width: 100%;
+
+	& a {
+		width: 100%;
+	}
+}
+
+#sidebar ul>li.open>ul>li.open>a {
+	color: $grafito;
+}
+
+#sidebar ul li>ul li.has-sub.open>ul li {
+	border: none;
+}
+
+#sidebar ul ul ul {
+	display: none;
+}
+
+#sidebar ul ul ul li a {
+	font-size: $medium-size;
+}
+
+#sidebar ul li.open>ul li {
+	border-bottom: 0.1rem solid $bg-grey;
+	width: 100%;
+}
+
+#sidebar ul li.open>ul li a {
+	width: 100%;
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+#sidebar ul li.open>ul li.open>ul li.open>a {
+	color: $blackio;
+	border-bottom: none;
+}
+
+#sidebar ul li.open>ul li.open>ul li.open.openPath>a {
+	color: $accent;
+	font-weight: 700;
+}
+
+#sidebar ul>li.open>ul>li.open>a {
+	color: $accent;
+}
+
+#sidebar ul ul ul li a {
+	font-size: $small-size;
+	padding-left: 3rem;
+}
